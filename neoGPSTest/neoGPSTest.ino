@@ -155,19 +155,19 @@ void sendDataWeb(){
     snprintf (msg, 50, "%.4f", fix.latitude());
     DEBUG_PORT.print("lat: ");
     DEBUG_PORT.println(msg);
-    client.publish("zoar/lat/", msg);
+    client.publish("zoar/latitude/", msg);
   
     snprintf (msg, 50, "%.4f", fix.longitude());
     DEBUG_PORT.print("lon: ");
     DEBUG_PORT.println(msg);
-    client.publish("zoar/lon/", msg);
+    client.publish("zoar/longitude/", msg);
   }
 
   if (fix.valid.altitude){
     snprintf (msg, 50, "%.0f", fix.altitude());
     DEBUG_PORT.print("alt: ");
     DEBUG_PORT.println(msg);
-    client.publish("zoar/alt/", msg);
+    client.publish("zoar/altitude/", msg);
   }
 
   char mydatetime[50];
@@ -175,17 +175,17 @@ void sendDataWeb(){
   snprintf (msg, 50, "%s", mydatetime);
   DEBUG_PORT.print("iso: ");
   DEBUG_PORT.println(msg);
-  client.publish("zoar/iso/", msg);
+  client.publish("zoar/isodate/", msg);
   
   snprintf (msg, 50, "%.2f", readWaterTemp());
   DEBUG_PORT.print("water: ");
   DEBUG_PORT.println(msg);
-  client.publish("zoar/temp/water/", msg);
+  client.publish("zoar/temperature/water/", msg);
 
   snprintf (msg, 50, "%.2f", readAirTemp());
   DEBUG_PORT.print("air: ");
   DEBUG_PORT.println(msg);
-  client.publish("zoar/temp/air/", msg);
+  client.publish("zoar/temperature/air/", msg);
 }
 
 void reconnect() {
